@@ -1,0 +1,155 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #239568;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+    min-height: 100vh;
+}
+
+
+.container {
+    background: #136c49;
+    padding: 20px;
+    width: 90%;
+    border-radius: 8px;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.2);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.input-row {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.task-input{
+    display: flex;
+    background: #326a52;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    color: #27302a;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.task-input::placeholder {
+    color: #445349;
+}
+
+
+
+#add-btn {
+    padding: 8px 12px;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    transition: background 0.3s;
+    margin-bottom: 15px;
+}
+
+#add-btn:hover {
+    background: #45a049;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    margin-bottom: 6px;
+    background: #49c189;
+    border-radius: 4px;
+    border: 2px solid #27302a;
+}
+
+
+
+
+
+@keyframes li_span{
+    from {
+        text-decoration-color: transparent;
+    }
+    to {
+        text-decoration-color: black;
+    }
+}
+
+li i {
+    cursor: pointer;
+}
+
+li span {
+    cursor: pointer;
+}
+
+li.completed span {
+    text-decoration: line-through;
+    animation: li_span 0.3s forwards;
+}
+
+li.removing {
+    opacity: 0;
+    transform: translateX(50px) scale(0.9);
+    background-color: rgba(191, 2, 2, 0.63);
+    transition: opacity 0.85s ease, transform 0.85s ease, color 0.85s ease;
+}
+
+
+
+
+button.delete {
+    background: crimson;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.delete:hover {
+    background: darkred;
+}
+
+
+/* Buttons */
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+#export-btn, #import-btn {
+    padding: 6px 12px;
+    border: none;
+    background: #385c78;
+    color: #d1c6c6;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#export-btn:hover, #import-btn:hover {
+    background: #2c4a61;
+}
