@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>D-MIND</title>
+    <link rel="icon" href="images/DMINDlogo.png" type="image/x-icon" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
@@ -12,7 +13,7 @@
     <h1>D-MIND: To Do</h1>
     <div class="input-row">
         <input id="task-input" type="text" class="task-input" placeholder="What do you need to do?..." />
-        <button id="add-btn">Add</button>
+        <button id="add-btn"><i class="fa-solid fa-plus"></i></button>
     </div>
 
 
@@ -23,6 +24,8 @@
 
     <div class="buttons">
         <button id="export-btn">Export</button>
+        <button id="clear-all">Delete All</button>
+        <button id="clear-completed">Delete Completed</button>
         <input type="file" id="import-file" accept=".json" hidden />
         <button id="import-btn">Import</button>
     </div>

@@ -140,7 +140,7 @@ button.delete:hover {
     margin-top: 15px;
 }
 
-#export-btn, #import-btn {
+#export-btn, #import-btn, #clear-all, #clear-completed {
     padding: 6px 12px;
     border: none;
     background: #385c78;
@@ -150,6 +150,14 @@ button.delete:hover {
     transition: background 0.3s;
 }
 
-#export-btn:hover, #import-btn:hover {
+#export-btn:hover, #import-btn:hover, #clear-all:hover, #clear-completed:hover {
     background: #2c4a61;
+}
+
+#clear-all {
+    background-color: #a33a3a;
+}
+
+#clear-completed {
+    background-color: #095c3d;
 }

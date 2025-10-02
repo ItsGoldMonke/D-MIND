@@ -136,3 +136,27 @@ importFile.addEventListener("change", (e) => {
 
     reader.readAsText(file);
 });
+
+
+
+
+// Delete Buttons
+
+const delCompletedBtn = document.getElementById("clear-completed");
+const delAllBtn = document.getElementById("clear-all");
+
+
+delCompletedBtn.addEventListener("click", () => {
+    tasks = tasks.filter(task => !task.completed); // keep only incomplete tasks
+    saveTasks();
+    loadTasks();
+});
+
+
+delAllBtn.addEventListener("click", () => {
+    if (confirm("Are you sure you want to clear all tasks?")) {
+        tasks = [];
+        saveTasks();
+        loadTasks();
+    }
+});
