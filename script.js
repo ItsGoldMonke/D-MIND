@@ -35,6 +35,7 @@ function loadTasks() {
         const li = document.createElement("li");
         if (task.completed) li.classList.add("completed");
 
+
         const span = document.createElement("span");
         span.textContent = task.text;
         span.addEventListener("click", () => toggleComplete(index));
@@ -139,6 +140,21 @@ importFile.addEventListener("change", (e) => {
 
 
 
+function animateAndRemove(indices) {
+    const items = Array.from(taskList.children);
+
+    indices.forEach(i => {
+        if (items[i]) items[i].classList.add("removing");
+    });
+
+    const animationDuration = 400; // matches CSS transition (0.4s)
+    setTimeout(() => {
+        tasks = tasks.filter((_, i) => !indices.includes(i));
+        saveTasks();
+        loadTasks();
+    }, animationDuration);
+}
+
 
 // Delete Buttons
 
@@ -147,16 +163,21 @@ const delAllBtn = document.getElementById("clear-all");
 
 
 delCompletedBtn.addEventListener("click", () => {
-    tasks = tasks.filter(task => !task.completed); // keep only incomplete tasks
-    saveTasks();
-    loadTasks();
+    const completedIndices = tasks
+        .map((task, i) => (task.completed ? i : -1))
+        .filter(i => i !== -1);
+
+    if (completedIndices.length === 0) return;
+    animateAndRemove(completedIndices);
 });
+
 
 
 delAllBtn.addEventListener("click", () => {
-    if (confirm("Are you sure you want to clear all tasks?")) {
-        tasks = [];
-        saveTasks();
-        loadTasks();
-    }
+    if (!confirm("Are you sure you want to clear all tasks?")) return;
+
+    const allIndices = tasks.map((_, i) => i);
+    animateAndRemove(allIndices);
 });
+
+
